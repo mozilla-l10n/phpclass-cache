@@ -1,0 +1,12 @@
+{
+    "name": "mozillal10n/cache",
+    "description": "Functions used to cache URI requests",
+    "require-dev": {
+        "atoum/atoum" : "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Cache": "src/"
+        }
+    }
+}
