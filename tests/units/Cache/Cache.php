@@ -11,8 +11,7 @@ class Cache extends atoum\test
     public function beforeTestMethod($method)
     {
         // Executed *before each* test method.
-        switch ($method)
-        {
+        switch ($method) {
             case 'testFlush':
                 // Prepare testing environment for testFlush().
                 $files = new _Cache();
