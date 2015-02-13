@@ -15,12 +15,12 @@ namespace Cache;
 class Cache
 {
     /**
-     * @var  boolean  CACHE_ENABLED  Fallback for activation of Cache
+     * @var boolean CACHE_ENABLED  Fallback for activation of Cache
      */
     const CACHE_ENABLED = true;
 
     /**
-     * @var  integer  CACHE_TIME  Cache expiration time (seconds)
+     * @var integer CACHE_TIME  Cache expiration time (seconds)
      */
     const CACHE_TIME = 3600;
 
@@ -31,11 +31,11 @@ class Cache
      * as it allows storing not only data but also data representations and
      * instantiated objects.
      *
-     * @param   string   $id    UID of the cache
-     * @param   object   $data  Data to store
+     * @param string $id   UID of the cache
+     * @param object $data Data to store
      *
-     * @return  boolean         True if cache file is created
-     *                          False if there was an error
+     * @return boolean True if cache file is created
+     *                 False if there was an error
      */
     public static function setKey($id, $data)
     {
@@ -49,10 +49,10 @@ class Cache
     /**
      * Get the cached serialized data via its UID
      *
-     * @param  string   $id   UID of the cache
-     * @param  integer  $ttl  Number of seconds for time to live. Default to 0
+     * @param string  $id  UID of the cache
+     * @param integer $ttl Number of seconds for time to live. Default to 0
      *
-     * @return mixed          Unserialized cached data, or false
+     * @return mixed Unserialized cached data, or false
      */
     public static function getKey($id, $ttl = 0)
     {
@@ -72,8 +72,8 @@ class Cache
     /**
      * Flush the current cache
      *
-     * @return  boolean  True if files in cache are deleted
-     *                   False if some files were not deleted
+     * @return boolean True if files in cache are deleted
+     *                 False if some files were not deleted
      */
     public static function flush()
     {
@@ -86,8 +86,8 @@ class Cache
      * Is the caching system activated?
      * We look if the CACHE constant is available and if it's set to True
      *
-     * @return  boolean  True if activated
-     *                   False if deactivated
+     * @return boolean True if activated
+     *                 False if deactivated
      */
     private static function isActivated()
     {
@@ -97,10 +97,11 @@ class Cache
     /**
      * Check if cached data for a key is usable
      *
-     * @param  string   $id   UID for the data
-     * @param  integer  $ttl  Number of seconds for time to live
-     * @return boolean        True if valid data
-     *                        False if cached data is not usable
+     * @param string  $id  UID for the data
+     * @param integer $ttl Number of seconds for time to live
+     *
+     * @return boolean True if valid data
+     *                 False if cached data is not usable
      */
     private static function isValidKey($id, $ttl)
     {
@@ -112,6 +113,7 @@ class Cache
         // Cache is obsolete and was deleted
         if (self::isObsoleteKey($id, $ttl)) {
             self::deleteKey($id);
+
             return false;
         }
 
@@ -122,10 +124,10 @@ class Cache
     /**
      * Delete a cache file based to its UID
      *
-     * @param   string   $id  UID of the cached data
+     * @param string $id UID of the cached data
      *
-     * @return  boolean       True if data was deleted
-     *                        False if it doesn't exist
+     * @return boolean True if data was deleted
+     *                 False if it doesn't exist
      */
     private static function deleteKey($id)
     {
@@ -146,9 +148,9 @@ class Cache
      *
      * Filename is in the form a840d513be5240045ccc979208f739a168946332.cache
      *
-     * @param   string  $id  UID of the cached file
+     * @param string $id UID of the cached file
      *
-     * @return  string       Path to the file
+     * @return string Path to the file
      */
     private static function getKeyPath($id)
     {
@@ -161,7 +163,7 @@ class Cache
      * Use a CACHE_PATH global constant if defined, otherwise use OS
      * default folder for temporary files.
      *
-     * @return  string  Path to cache folder
+     * @return string Path to cache folder
      */
     private static function getCachePath()
     {
@@ -171,11 +173,11 @@ class Cache
     /**
      * Check if the data has not expired
      *
-     * @param  string   $id   UID of the cached file
-     * @param  integer  $ttl  Number of seconds for time to live
+     * @param string  $id  UID of the cached file
+     * @param integer $ttl Number of seconds for time to live
      *
-     * @return boolean        True if file is obsolete
-     *                        False if it is still usable
+     * @return boolean True if file is obsolete
+     *                 False if it is still usable
      */
     private static function isObsoleteKey($id, $ttl)
     {
