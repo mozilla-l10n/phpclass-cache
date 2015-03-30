@@ -89,7 +89,7 @@ class Cache
      * @return boolean True if activated
      *                 False if deactivated
      */
-    private static function isActivated()
+    public static function isActivated()
     {
         return defined('CACHE_ENABLED') ? CACHE_ENABLED : self::CACHE_ENABLED;
     }
