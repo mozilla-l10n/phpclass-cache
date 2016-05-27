@@ -2,8 +2,8 @@
     "name": "mozillal10n/cache",
     "description": "Functions used to cache URI requests",
     "require-dev": {
-        "atoum/atoum" : "~1.1",
-        "fabpot/php-cs-fixer": "~1.4"
+        "atoum/atoum" : "~2.0",
+        "friendsofphp/php-cs-fixer": "~1.11"
     },
     "autoload": {
         "psr-0": {
