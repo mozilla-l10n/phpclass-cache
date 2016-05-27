@@ -27,7 +27,7 @@ class Cache extends atoum\test
                 $files->setKey('valid', 'foobar');
                 $files->setKey('expired', 'foobar');
                 // Change the timestamp to 100 seconds in the past so we can test expiration
-                touch(CACHE_PATH . sha1('expired') . '.cache', time()-100);
+                touch(CACHE_PATH . sha1('expired') . '.cache', time() - 100);
                 break;
         }
     }
