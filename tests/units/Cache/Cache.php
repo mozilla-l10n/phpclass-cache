@@ -20,7 +20,6 @@ class Cache extends atoum\test
                 $files->setKey('file_2', 'foobar');
                 $files->setKey('file_3', 'foobar');
                 break;
-
             case 'testGetKey':
                 // Prepare testing environment for testGetKey().
                 $files = new _Cache();
