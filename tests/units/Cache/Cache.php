@@ -1,7 +1,7 @@
 <?php
 namespace tests\units\Cache;
 
-use atoum;
+use atoum\atoum;
 use Cache\Cache as _Cache;
 
 require_once __DIR__ . '/../bootstrap.php';
